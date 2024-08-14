@@ -20,11 +20,6 @@ public class BookController {
         return "book/list";
     }
 
-    @GetMapping("/create")
-    public String showCreateForm(Model model) {
-        model.addAttribute("book", new Book());
-        return "book/form";
-    }
 
     @PostMapping("/create")
     public String createBook(@ModelAttribute Book book) {
@@ -39,11 +34,6 @@ public class BookController {
         return "book/form";
     }
 
-    @PostMapping("/update")
-    public String updateBook(@ModelAttribute Book book) {
-        bookService.save(book);
-        return "redirect:/books";
-    }
 
     @GetMapping("/delete/{id}")
     public String deleteBook(@PathVariable("id") int id) {
